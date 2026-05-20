@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dreamsonpaper | Book Reviews</title>
+    <style>
+        :root {
+            --bg-color: #fcfaf7;
+            --text-color: #2c3e50;
+            --accent-color: #e67e22;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--text-color);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: lowercase;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .review-card h2 {
+            margin-top: 0;
+            color: var(--text-color);
+        }
+
+        .review-card .meta {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+
+        .review-card .rating {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: #95a5a6;
+        }
+
+        @media (max-width: 600px) {
+            main { margin: 1rem auto; }
+            .review-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>dreamsonpaper</h1>
+        <p>reviews of the books that linger</p>
+    </header>
+
+    <main>
+        <article class="review-card">
+            <h2>The Shadow of the Wind</h2>
+            <div class="meta">by Carlos Ruiz Zafón &bull; <span class="rating">★★★★★</span></div>
+            <p>
+                A love letter to literature and the city of Barcelona. This book is a labyrinth of mysteries and emotions that reminds us why we read in the first place. The "Cemetery of Forgotten Books" is an image that stays with you long after the final page.
+            </p>
+        </article>
+
+        <article class="review-card">
+            <h2>Stoner</h2>
+            <div class="meta">by John Williams &bull; <span class="rating">★★★★☆</span></div>
+            <p>
+                A quietly devastating novel about an ordinary life. It's a masterclass in stability and focused storytelling. Proof that you don't need explosions or grand adventures to write a deeply moving story.
+            </p>
+        </article>
+
+        <!-- New reviews can be added directly here -->
+    </main>
+
+    <footer>
+        &copy; 2026 dreamsonpaper. Built for readers.
+    </footer>
+
+</body>
+</html>

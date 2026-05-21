@@ -453,15 +453,24 @@
         </section>
 
         <!-- Review Grid (Hidden Tab) -->
-        <section class="tab-content review-grid" id="reviews" style="display: none;">
-            <div class="filters" style="grid-column: 1 / -1;">
-                <button class="filter-btn active" data-category="all">All</button>
-                <button class="filter-btn" data-category="fantasy">Fantasy</button>
-                <button class="filter-btn" data-category="romance">Romance</button>
-                <button class="filter-btn" data-category="literary">Literary Fiction</button>
-                <button class="filter-btn" data-category="thriller">Thriller</button>
-                <button class="filter-btn" data-category="classics">Classics</button>
+        <section class="tab-content review-grid-container" id="reviews" style="display: none;">
+            <div class="filter-sort-bar" style="position: sticky; top: 80px; background: var(--bg); padding: 1rem 0; z-index: 90; margin-bottom: 2rem; border-bottom: 1px solid var(--border);">
+                <input type="text" id="searchInput" placeholder="Search titles, authors, genres..." class="search-input" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border-radius: 50px; border: 1px solid var(--border); background: var(--card-bg);">
+                <div class="filters">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="fantasy">Fantasy</button>
+                    <button class="filter-btn" data-category="romance">Romance</button>
+                    <button class="filter-btn" data-category="literary">Literary Fiction</button>
+                    <button class="filter-btn" data-category="thriller">Thriller</button>
+                    <button class="filter-btn" data-category="classics">Classics</button>
+                    <button class="filter-btn" data-category="dark academia">Dark Academia</button>
+                    <button class="filter-btn" data-category="contemporary">Contemporary</button>
+                    <button class="filter-btn" data-category="horror">Horror</button>
+                    <button class="filter-btn" data-category="mythology">Mythology</button>
+                </div>
             </div>
+            
+            <div class="review-grid" id="reviewGrid">
             
             <!-- Review Card 1 -->
             <article class="review-card" data-category="fantasy">
@@ -839,27 +848,35 @@
             body.classList.add('dark-mode');
         }
 
-        // Category Filtering
+        // Enhanced Filtering & Search Logic
+        const searchInput = document.getElementById('searchInput');
         const filterBtns = document.querySelectorAll('.filter-btn');
         const cards = document.querySelectorAll('.review-card');
 
+        function filterReviews() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const activeCategory = document.querySelector('.filter-btn.active').getAttribute('data-category');
+
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title').innerText.toLowerCase();
+                const category = card.getAttribute('data-category');
+                const matchesSearch = title.includes(searchTerm);
+                const matchesCategory = activeCategory === 'all' || category === activeCategory;
+
+                if (matchesSearch && matchesCategory) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        searchInput.addEventListener('input', filterReviews);
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Update active button
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-
-                const category = btn.getAttribute('data-category');
-
-                cards.forEach(card => {
-                    if (category === 'all' || card.getAttribute('data-category') === category) {
-                        card.style.display = 'flex';
-                        setTimeout(() => card.style.opacity = '1', 10);
-                    } else {
-                        card.style.opacity = '0';
-                        setTimeout(() => card.style.display = 'none', 400);
-                    }
-                });
+                filterReviews();
             });
         });
 

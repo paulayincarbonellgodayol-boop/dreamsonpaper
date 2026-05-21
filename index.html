@@ -111,9 +111,10 @@
             letter-spacing: 1px;
             opacity: 0.7;
             transition: var(--transition);
+            cursor: pointer;
         }
 
-        nav a:hover {
+        nav a.active, nav a:hover {
             opacity: 1;
             color: var(--accent);
         }
@@ -279,91 +280,19 @@
             overflow: hidden;
         }
 
-        /* Reading Tracker */
-        .tracker-section {
-            background: var(--beige);
-            padding: 6rem 5%;
-            margin-bottom: 6rem;
-        }
-
-        .dark-mode .tracker-section {
-            background: #252525;
-        }
-
-        .tracker-container {
+        /* About & Tracker Sections */
+        .tab-content {
+            padding: 4rem 5%;
             max-width: 1000px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
         }
 
-        .currently-reading {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .currently-reading img {
-            width: 150px;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(0,0,0,0.1);
-            border-radius: 10px;
-            margin-top: 1rem;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: var(--accent);
-            border-radius: 10px;
-        }
-
-        /* Newsletter */
         .newsletter {
             text-align: center;
             padding: 6rem 5%;
             max-width: 800px;
             margin: 0 auto 6rem;
             border-top: 1px solid var(--border);
-        }
-
-        .newsletter h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
-            border: 1px solid var(--border);
-            background: var(--card-bg);
-            color: var(--text);
-            font-family: inherit;
-        }
-
-        .newsletter-form button {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            border: none;
-            background: var(--accent);
-            color: white;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
         }
 
         /* Modal */
@@ -423,8 +352,6 @@
 
         @media (max-width: 768px) {
             .hero-title { font-size: 2rem; }
-            .tracker-container { grid-template-columns: 1fr; }
-            .newsletter-form { flex-direction: column; }
             nav { display: none; }
             .modal-content { padding: 2rem; }
         }
@@ -435,8 +362,8 @@
     <header>
         <a href="#" class="logo serif">Dreams on Paper</a>
         <nav>
-            <a href="#reviews">Reviews</a>
-            <a href="#about">About</a>
+            <a href="#" class="tab-link active" data-target="about">About</a>
+            <a href="#" class="tab-link" data-target="reviews">Reviews</a>
             <a href="#newsletter">Circle</a>
         </nav>
         <div class="controls">
@@ -455,8 +382,34 @@
                     <h1 class="hero-title">The Magic of Forgotten Libraries</h1>
                 </div>
             </div>
+        </section>
 
-            <div class="filters">
+        <!-- About Me Section (Default Tab) -->
+        <section class="tab-content" id="about">
+            <h2 class="serif" style="text-align: center; margin-bottom: 2rem;">About Me</h2>
+            <p class="garamond" style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; line-height: 1.8;">
+                Hi Ravens!
+                <br>
+                I’m Paula, the reader and writer behind Dreams on Paper.
+                <br>
+                What started as a quiet love for stories slowly turned into this little corner of the internet, a space where books are more than just pages and plots. Reading has always felt like an escape, a comfort, and sometimes even a way of understanding the world a little better.
+                <br>
+                Dreams on Paper actually began back in 2017 during a technology class, when we were asked to create a blog after learning the basics of HTML. As an avid reader who desperately wanted to learn how to code (sadly, still working on that), I poured all my passion into this project — pastel colours, customised fonts, layouts, borders, and even my own Goodreads Quotes widget.
+                <br>
+                Back then there was no AI, just curiosity, Google searches, and a lot of experimenting.
+                <br>
+                Now, in 2026, revisiting this blog with the help of AI feels surreal. What once looked like a simple and slightly childish book blog can now become something more interactive, immersive, and visually refined without losing the heart it started with. Exploring AI applications for business and creativity has unexpectedly reignited one of my oldest ideas.
+                <br>
+                Here, you’ll find honest book reviews, favourite quotes, reading wrap-ups, and thoughts on the stories that stay with you long after the final page. If you love cosy reading nights, annotated pages, and getting lost in fictional worlds, you’re in the right place.
+                <br>
+                So grab a cup of coffee, get comfortable, and stay awhile — there’s always another story waiting to be discovered.
+            </p>
+            <img src="bye-ravens.png" alt="Sign-off" style="max-width: 200px; margin: 0 auto; display: block; opacity: 0.8;">
+        </section>
+
+        <!-- Review Grid (Hidden Tab) -->
+        <section class="tab-content review-grid" id="reviews" style="display: none;">
+            <div class="filters" style="grid-column: 1 / -1;">
                 <button class="filter-btn active" data-category="all">All</button>
                 <button class="filter-btn" data-category="fantasy">Fantasy</button>
                 <button class="filter-btn" data-category="romance">Romance</button>
@@ -464,10 +417,7 @@
                 <button class="filter-btn" data-category="thriller">Thriller</button>
                 <button class="filter-btn" data-category="classics">Classics</button>
             </div>
-        </section>
-
-        <!-- Review Grid -->
-        <section class="review-grid" id="reviews">
+            
             <!-- Review Card 1 -->
             <article class="review-card" data-category="fantasy">
                 <div class="card-img">
@@ -508,52 +458,6 @@
             </article>
         </section>
 
-        <!-- Reading Tracker -->
-        <section class="tracker-section">
-            <div class="tracker-container">
-                <div>
-                    <h2 class="serif" style="font-size: 2.5rem; margin-bottom: 2rem;">Reading Tracker</h2>
-                    <p class="garamond" style="font-size: 1.2rem; margin-bottom: 2rem;">My goal for 2026: 52 books. I'm currently on track!</p>
-                    <div class="goal-progress">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                            <span>24 / 52 Books</span>
-                            <span>46%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 46%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="currently-reading">
-                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=300" alt="Current Read">
-                    <div>
-                        <span class="card-category">Currently Reading</span>
-                        <h3 class="serif">Piranesi</h3>
-                        <p class="garamond">By Susanna Clarke</p>
-                        <div class="progress-bar" style="height: 4px;">
-                            <div class="progress-fill" style="width: 75%;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Me Section -->
-        <section class="newsletter" id="about">
-            <h2 class="serif">About Me</h2>
-            <p class="garamond" style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; line-height: 1.8;">
-                Hi Ravens!<br><br>
-                I’m Paula, the reader and writer behind Dreams on Paper.<br><br>
-                What started as a quiet love for stories slowly turned into this little corner of the internet, a space where books are more than just pages and plots. Reading has always felt like an escape, a comfort, and sometimes even a way of understanding the world a little better.<br><br>
-                Dreams on Paper actually began back in 2017 during a technology class, when we were asked to create a blog after learning the basics of HTML. As an avid reader who desperately wanted to learn how to code (sadly, still working on that), I poured all my passion into this project — pastel colours, customised fonts, layouts, borders, and even my own Goodreads Quotes widget.<br><br>
-                Back then there was no AI, just curiosity, Google searches, and a lot of experimenting.<br><br>
-                Now, in 2026, revisiting this blog with the help of AI feels surreal. What once looked like a simple and slightly childish book blog can now become something more interactive, immersive, and visually refined without losing the heart it started with. Exploring AI applications for business and creativity has unexpectedly reignited one of my oldest ideas.<br><br>
-                Here, you’ll find honest book reviews, favourite quotes, reading wrap-ups, and thoughts on the stories that stay with you long after the final page. If you love cosy reading nights, annotated pages, and getting lost in fictional worlds, you’re in the right place.<br><br>
-                So grab a cup of coffee, get comfortable, and stay awhile — there’s always another story waiting to be discovered.
-            </p>
-            <img src="bye-ravens.png" alt="Sign-off" style="max-width: 200px; margin: 0 auto; display: block; opacity: 0.8;">
-        </section>
-
         <!-- Newsletter -->
         <section class="newsletter" id="newsletter">
             <h2 class="serif">Join the Reading Circle</h2>
@@ -569,9 +473,7 @@
     <div class="modal" id="reviewModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <div id="modalBody">
-                <!-- Content will be injected by JS -->
-            </div>
+            <div id="modalBody"></div>
         </div>
     </div>
 
@@ -583,6 +485,23 @@
     </footer>
 
     <script>
+        // Tab Switching Logic
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                tabLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                tabContents.forEach(content => {
+                    content.style.display = (content.id === link.getAttribute('data-target')) ? 'block' : 'none';
+                    if(content.classList.contains('review-grid')) content.style.display = (content.id === link.getAttribute('data-target')) ? 'grid' : 'none';
+                });
+            });
+        });
+
         // Theme Toggle
         const themeBtn = document.getElementById('themeBtn');
         const body = document.body;

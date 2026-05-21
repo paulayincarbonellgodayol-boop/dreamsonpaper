@@ -209,12 +209,11 @@
         /* Review Grid */
         .review-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 3rem;
             padding: 0 5%;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto 6rem;
-            justify-items: center;
         }
 
         .review-card {
@@ -226,8 +225,6 @@
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            width: 100%;
-            max-width: 300px;
         }
 
         .review-card:hover {
@@ -236,18 +233,14 @@
         }
 
         .card-img {
-            height: 350px;
+            height: 400px;
             overflow: hidden;
-            background-color: var(--beige);
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .card-img img {
-            max-width: 100%;
+            width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             transition: var(--transition);
         }
 
@@ -453,24 +446,15 @@
         </section>
 
         <!-- Review Grid (Hidden Tab) -->
-        <section class="tab-content review-grid-container" id="reviews" style="display: none;">
-            <div class="filter-sort-bar" style="position: sticky; top: 80px; background: var(--bg); padding: 1rem 0; z-index: 90; margin-bottom: 2rem; border-bottom: 1px solid var(--border);">
-                <input type="text" id="searchInput" placeholder="Search titles, authors, genres..." class="search-input" style="width: 100%; padding: 0.8rem; margin-bottom: 1rem; border-radius: 50px; border: 1px solid var(--border); background: var(--card-bg);">
-                <div class="filters">
-                    <button class="filter-btn active" data-category="all">All</button>
-                    <button class="filter-btn" data-category="fantasy">Fantasy</button>
-                    <button class="filter-btn" data-category="romance">Romance</button>
-                    <button class="filter-btn" data-category="literary">Literary Fiction</button>
-                    <button class="filter-btn" data-category="thriller">Thriller</button>
-                    <button class="filter-btn" data-category="classics">Classics</button>
-                    <button class="filter-btn" data-category="dark academia">Dark Academia</button>
-                    <button class="filter-btn" data-category="contemporary">Contemporary</button>
-                    <button class="filter-btn" data-category="horror">Horror</button>
-                    <button class="filter-btn" data-category="mythology">Mythology</button>
-                </div>
+        <section class="tab-content review-grid" id="reviews" style="display: none;">
+            <div class="filters" style="grid-column: 1 / -1;">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="fantasy">Fantasy</button>
+                <button class="filter-btn" data-category="romance">Romance</button>
+                <button class="filter-btn" data-category="literary">Literary Fiction</button>
+                <button class="filter-btn" data-category="thriller">Thriller</button>
+                <button class="filter-btn" data-category="classics">Classics</button>
             </div>
-            
-            <div class="review-grid" id="reviewGrid">
             
             <!-- Review Card 1 -->
             <article class="review-card" data-category="fantasy">
@@ -484,7 +468,7 @@
             </article>
 
             <!-- Review Card 2 -->
-            <article class="review-card" data-category="fantasy">
+            <article class="review-card" data-category="fantasy romance">
                 <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781250857439-L.jpg" alt="Divine Rivals"></div>
                 <div class="card-content">
                     <span class="card-category">Fantasy Romance</span>
@@ -604,6 +588,17 @@
                 </div>
             </article>
 
+            <!-- Review Card 13 -->
+            <article class="review-card" data-category="horror">
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9780143137191-L.jpg" alt="Bunny"></div>
+                <div class="card-content">
+                    <span class="card-category">Horror</span>
+                    <h2 class="card-title">Bunny</h2>
+                    <div class="card-rating">★★★★☆</div>
+                    <p class="card-preview">Weird, chaotic, and surreal. Completely unlike anything else.</p>
+                </div>
+            </article>
+
             <!-- Review Card 14 -->
             <article class="review-card" data-category="fantasy romance">
                 <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781635575583-L.jpg" alt="A Court of Mist and Fury"></div>
@@ -681,80 +676,168 @@
                 </div>
             </article>
 
-            <!-- Review Card 14 -->
+            <!-- Review Card 21 -->
+            <article class="review-card" data-category="cosy fantasy">
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9780593500132-L.jpg" alt="Emily Wilde’s Encyclopaedia of Faeries"></div>
+                <div class="card-content">
+                    <span class="card-category">Cosy Fantasy</span>
+                    <h2 class="card-title">Emily Wilde’s Encyclopaedia of Faeries</h2>
+                    <div class="card-rating">★★★★★</div>
+                    <p class="card-preview">A charming and whimsical fantasy filled with folklore, academia, and cosy winter vibes.</p>
+                </div>
+            </article>
+
+            <!-- Review Card 22 -->
             <article class="review-card" data-category="fantasy romance">
-                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781635575583-L.jpg" alt="A Court of Mist and Fury"></div>
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781250268389-L.jpg" alt="Once Upon a Broken Heart"></div>
                 <div class="card-content">
                     <span class="card-category">Fantasy Romance</span>
-                    <h2 class="card-title">A Court of Mist and Fury</h2>
+                    <h2 class="card-title">Once Upon a Broken Heart</h2>
                     <div class="card-rating">★★★★★</div>
-                    <p class="card-preview">An emotional rollercoaster with incredible character development.</p>
+                    <p class="card-preview">Magical, romantic, and fairytale-like. Every chapter felt dreamy and visually enchanting.</p>
                 </div>
             </article>
 
-            <!-- Review Card 15 -->
-            <article class="review-card" data-category="literary">
-                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9780593321201-L.jpg" alt="Tomorrow, and Tomorrow, and Tomorrow"></div>
-                <div class="card-content">
-                    <span class="card-category">Literary Fiction</span>
-                    <h2 class="card-title">Tomorrow, and Tomorrow, and Tomorrow</h2>
-                    <div class="card-rating">★★★★★</div>
-                    <p class="card-preview">A beautiful story about friendship, creativity, and the complexity of love.</p>
-                </div>
-            </article>
-
-            <!-- Review Card 16 -->
-            <article class="review-card" data-category="thriller">
-                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9780063250833-L.jpg" alt="Yellowface"></div>
-                <div class="card-content">
-                    <span class="card-category">Thriller</span>
-                    <h2 class="card-title">Yellowface</h2>
-                    <div class="card-rating">★★★★☆</div>
-                    <p class="card-preview">Sharp, uncomfortable, and impossible to stop reading.</p>
-                </div>
-            </article>
-
-            <!-- Review Card 17 -->
-            <article class="review-card" data-category="magical realism">
-                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781335430991-L.jpg" alt="Before the Coffee Gets Cold"></div>
-                <div class="card-content">
-                    <span class="card-category">Magical Realism</span>
-                    <h2 class="card-title">Before the Coffee Gets Cold</h2>
-                    <div class="card-rating">★★★★☆</div>
-                    <p class="card-preview">Gentle, reflective, and quietly emotional.</p>
-                </div>
-            </article>
-
-            <!-- Review Card 18 -->
-            <article class="review-card" data-category="romance">
-                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9780593441282-L.jpg" alt="Funny Story"></div>
-                <div class="card-content">
-                    <span class="card-category">Romance</span>
-                    <h2 class="card-title">Funny Story</h2>
-                    <div class="card-rating">★★★★☆</div>
-                    <p class="card-preview">Funny, comforting, and full of emotional depth.</p>
-                </div>
-            </article>
-
-            <!-- Review Card 19 -->
+            <!-- Review Card 23 -->
             <article class="review-card" data-category="fantasy">
-                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781250313072-L.jpg" alt="Ninth House"></div>
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781665954884-L.jpg" alt="Powerless"></div>
                 <div class="card-content">
                     <span class="card-category">Fantasy</span>
-                    <h2 class="card-title">Ninth House</h2>
-                    <div class="card-rating">★★★★☆</div>
-                    <p class="card-preview">Dark, intelligent, and atmospheric. Occult mysteries done perfectly.</p>
+                    <h2 class="card-title">Powerless</h2>
+                    <div class="card-rating">★★★☆☆</div>
+                    <p class="card-preview">Entertaining and fast-paced, but the world-building felt underdeveloped.</p>
                 </div>
             </article>
 
-            <!-- Review Card 20 -->
-            <article class="review-card" data-category="thriller">
-                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781250301697-L.jpg" alt="The Silent Patient"></div>
+            <!-- Review Card 24 -->
+            <article class="review-card" data-category="fantasy">
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781250095251-L.jpg" alt="Caraval"></div>
                 <div class="card-content">
-                    <span class="card-category">Thriller</span>
-                    <h2 class="card-title">The Silent Patient</h2>
+                    <span class="card-category">Fantasy</span>
+                    <h2 class="card-title">Caraval</h2>
                     <div class="card-rating">★★★★☆</div>
-                    <p class="card-preview">Fast-paced and gripping with a twist that changes everything.</p>
+                    <p class="card-preview">Dark, magical, and atmospheric. Like stepping into a carnival dream.</p>
+                </div>
+            </article>
+
+            <!-- Review Card 25 -->
+            <article class="review-card" data-category="fantasy">
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9780316310277-L.jpg" alt="The Cruel Prince"></div>
+                <div class="card-content">
+                    <span class="card-category">Fantasy</span>
+                    <h2 class="card-title">The Cruel Prince</h2>
+                    <div class="card-rating">★★★★★</div>
+                    <p class="card-preview">Political intrigue, morally grey characters, and sharp dialogue.</p>
+                </div>
+            </article>
+
+            <!-- Review Card 26 -->
+            <article class="review-card" data-category="fantasy">
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781534441606-L.jpg" alt="Legendborn"></div>
+                <div class="card-content">
+                    <span class="card-category">Fantasy</span>
+                    <h2 class="card-title">Legendborn</h2>
+                    <div class="card-rating">★★★★★</div>
+                    <p class="card-preview">A brilliant blend of Arthurian legend, grief, and modern fantasy.</p>
+                </div>
+            </article>
+
+            <!-- Review Card 27 -->
+            <article class="review-card" data-category="fantasy">
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781627792127-L.jpg" alt="Six of Crows"></div>
+                <div class="card-content">
+                    <span class="card-category">Fantasy</span>
+                    <h2 class="card-title">Six of Crows</h2>
+                    <div class="card-rating">★★★★★</div>
+                    <p class="card-preview">One of the best fantasy heists ever written. Characters are unforgettable.</p>
+                </div>
+            </article>
+
+            <!-- Review Card 28 -->
+            <article class="review-card" data-category="dark academia">
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781250854513-L.jpg" alt="The Atlas Six"></div>
+                <div class="card-content">
+                    <span class="card-category">Dark Academia</span>
+                    <h2 class="card-title">The Atlas Six</h2>
+                    <div class="card-rating">★★★☆☆</div>
+                    <p class="card-preview">Interesting atmosphere, but pacing dragged and characters felt distant.</p>
+                </div>
+            </article>
+
+            <!-- Review Card 29 -->
+            <article class="review-card" data-category="fantasy">
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9780765387561-L.jpg" alt="The Invisible Life of Addie LaRue"></div>
+                <div class="card-content">
+                    <span class="card-category">Fantasy</span>
+                    <h2 class="card-title">The Invisible Life of Addie LaRue</h2>
+                    <div class="card-rating">★★★★★</div>
+                    <p class="card-preview">Melancholic and beautifully written. A story about memory and being seen.</p>
+                </div>
+            </article>
+
+            <!-- Review Card 30 -->
+            <article class="review-card" data-category="fantasy">
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781635570298-L.jpg" alt="The Priory of the Orange Tree"></div>
+                <div class="card-content">
+                    <span class="card-category">Fantasy</span>
+                    <h2 class="card-title">The Priory of the Orange Tree</h2>
+                    <div class="card-rating">★★★★☆</div>
+                    <p class="card-preview">Epic in scope with incredible lore.</p>
+                </div>
+            </article>
+
+            <!-- Review Card 31 -->
+            <article class="review-card" data-category="romance">
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781984806758-L.jpg" alt="People We Meet on Vacation"></div>
+                <div class="card-content">
+                    <span class="card-category">Romance</span>
+                    <h2 class="card-title">People We Meet on Vacation</h2>
+                    <div class="card-rating">★★★★☆</div>
+                    <p class="card-preview">A comforting friends-to-lovers romance filled with nostalgia.</p>
+                </div>
+            </article>
+
+            <!-- Review Card 32 -->
+            <article class="review-card" data-category="romance">
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9780593336854-L.jpg" alt="Love, Theoretically"></div>
+                <div class="card-content">
+                    <span class="card-category">Romance</span>
+                    <h2 class="card-title">Love, Theoretically</h2>
+                    <div class="card-rating">★★★☆☆</div>
+                    <p class="card-preview">Cute and entertaining, but followed a repetitive formula.</p>
+                </div>
+            </article>
+
+            <!-- Review Card 33 -->
+            <article class="review-card" data-category="romance">
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9780593336823-L.jpg" alt="The Love Hypothesis"></div>
+                <div class="card-content">
+                    <span class="card-category">Romance</span>
+                    <h2 class="card-title">The Love Hypothesis</h2>
+                    <div class="card-rating">★★★★★</div>
+                    <p class="card-preview">Funny, charming, and full of tension. Perfect comfort read.</p>
+                </div>
+            </article>
+
+            <!-- Review Card 34 -->
+            <article class="review-card" data-category="romance">
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9781534467637-L.jpg" alt="Better Than the Movies"></div>
+                <div class="card-content">
+                    <span class="card-category">Romance</span>
+                    <h2 class="card-title">Better Than the Movies</h2>
+                    <div class="card-rating">★★★★☆</div>
+                    <p class="card-preview">Sweet, nostalgic, and full of rom-com energy.</p>
+                </div>
+            </article>
+
+            <!-- Review Card 35 -->
+            <article class="review-card" data-category="romance">
+                <div class="card-img"><img src="https://covers.openlibrary.org/b/isbn/9780593438534-L.jpg" alt="Every Summer After"></div>
+                <div class="card-content">
+                    <span class="card-category">Romance</span>
+                    <h2 class="card-title">Every Summer After</h2>
+                    <div class="card-rating">★★☆☆☆</div>
+                    <p class="card-preview">The atmosphere was lovely, but characters and conflict felt frustrating.</p>
                 </div>
             </article>
         </section>
@@ -799,130 +882,3 @@
             </div>
         </section>
     </main>
-
-    <!-- Modal for Full Review (Placeholder) -->
-    <div class="modal" id="reviewModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div id="modalBody"></div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="social-links">
-            <a href="https://www.goodreads.com/user/show/49602347-paula-carbonell" target="_blank">Goodreads</a>
-        </div>
-        <p class="garamond">&copy; 2026 Dreams on Paper. Built with love for readers.</p>
-    </footer>
-
-    <script>
-        // Tab Switching Logic
-        const tabLinks = document.querySelectorAll('.tab-link');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                tabLinks.forEach(l => l.classList.remove('active'));
-                link.classList.add('active');
-                
-                tabContents.forEach(content => {
-                    content.style.display = (content.id === link.getAttribute('data-target')) ? 'block' : 'none';
-                    if(content.classList.contains('review-grid')) content.style.display = (content.id === link.getAttribute('data-target')) ? 'grid' : 'none';
-                });
-            });
-        });
-
-        // Theme Toggle
-        const themeBtn = document.getElementById('themeBtn');
-        const body = document.body;
-
-        themeBtn.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            const isDark = body.classList.contains('dark-mode');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-
-        // Load Saved Theme
-        if (localStorage.getItem('theme') === 'dark') {
-            body.classList.add('dark-mode');
-        }
-
-        // Enhanced Filtering & Search Logic
-        const searchInput = document.getElementById('searchInput');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const cards = document.querySelectorAll('.review-card');
-
-        function filterReviews() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const activeCategory = document.querySelector('.filter-btn.active').getAttribute('data-category');
-
-            cards.forEach(card => {
-                const title = card.querySelector('.card-title').innerText.toLowerCase();
-                const category = card.getAttribute('data-category');
-                const matchesSearch = title.includes(searchTerm);
-                const matchesCategory = activeCategory === 'all' || category === activeCategory;
-
-                if (matchesSearch && matchesCategory) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        searchInput.addEventListener('input', filterReviews);
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                filterReviews();
-            });
-        });
-
-        // Modal Logic
-        const modal = document.getElementById('reviewModal');
-        const modalBody = document.getElementById('modalBody');
-        const closeBtn = document.querySelector('.close-modal');
-
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                const title = card.querySelector('.card-title').innerText;
-                const category = card.querySelector('.card-category').innerText;
-                const rating = card.querySelector('.card-rating').innerText;
-                const preview = card.querySelector('.card-preview').innerText;
-                const img = card.querySelector('img').src;
-
-                modalBody.innerHTML = `
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
-                        <img src="${img}" style="width: 100%; border-radius: 15px;">
-                        <div>
-                            <span class="card-category">${category}</span>
-                            <h2 class="serif" style="font-size: 3rem; margin-bottom: 1rem;">${title}</h2>
-                            <div class="card-rating" style="font-size: 1.5rem; margin-bottom: 2rem;">${rating}</div>
-                            <h3 class="serif" style="margin-bottom: 1rem;">Synopsis</h3>
-                            <p style="margin-bottom: 2rem;">${preview} This is where the full review content would live in the future...</p>
-                            <h3 class="serif" style="margin-bottom: 1rem;">Who should read this?</h3>
-                            <p>Anyone who loves immersive atmospheres and beautifully crafted prose.</p>
-                        </div>
-                    </div>
-                `;
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-    </script>
-</body>
-</html>
